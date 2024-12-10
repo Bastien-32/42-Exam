@@ -1,42 +1,59 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_hex.c                                        :+:      :+:    :+:   */
+/*   tab_mut.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 17:40:11 by badal-la          #+#    #+#             */
-/*   Updated: 2024/12/10 15:21:52 by badal-la         ###   ########.fr       */
+/*   Created: 2024/12/10 16:15:43 by badal-la          #+#    #+#             */
+/*   Updated: 2024/12/10 16:31:14 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_atoi(char *s)
+void	ft_putnbr(int nb)
 {
-	int i = 0;
-	long result = 0;
-
-	while (s[i] >= '0' && s[i] <= '9')
-		result = result * 10 + s[i++] - '0';
-	return ((int)result);
-} 
-void ft_putnbr_base(int nb, char *base)
-{
-	if (nb >= 16)
-		ft_putnbr_base(nb / 16, base);
-	write(1, &base[nb % 16], 1);
+	char c;
+	if (nb >= 10)
+		ft_putnbr(nb / 10);
+	c = (nb % 10) + '0';
+	write(1, &c, 1);
 }
 
-int	main(int argc, char **argv)
+int ft_atoi (char *s)
 {
-	char *base = "0123456789abcdef";
-	if (argc == 2)
+	int i = 0;
+	int result = 0;
+	
+	while (s[i])
+		result = result * 10 + s[i++] - '0';
+	return (result);
+}
+
+void	tab_mut(char * s)
+{
+	int i = 1;
+	int result; 
+
+	while (i <= 9)
 	{
-		if (ft_atoi(argv[1]) >= 0)
-			ft_putnbr_base(ft_atoi(argv[1]), base);
+		result = i * ft_atoi(s);
+		ft_putnbr(i);
+		write(1, " x ", 3);
+		ft_putnbr(ft_atoi(s));
+		write(1, " = ", 3);
+		ft_putnbr(result);
+		write(1, "\n", 1);
+		i++;
+	}
+}
+
+int main(int ac, char **av)
+{
+	if (ac == 2)
+	{
+		tab_mut(av[1]);
 	}
 	write(1, "\n", 1);
-	return (0);
-} 
-
+}

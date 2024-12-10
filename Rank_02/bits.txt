@@ -1,0 +1,52 @@
+Manipulation des bits
+
+unsigned char reverse_bits(unsigned char octet)
+{
+int i = 0;
+int reversed = 0;
+while (i < 8)
+{
+reversed = (reversed << 1) | (octet & 1);
+octet >>= 1;
+i++;
+}
+return (reversed);
+}
+
+
+Octet à inverser = 	10110010
+Reversed = 		00000000	
+reversed = (reversed << 1) | (octet & 1);
+(octet & 1) -> extrait le dernier bit (le bit de poids faible) de octet : octet  = 10110010
+(reversed << 1) -> on décale les bits existants de reversed vers la gauche.
+00000000  - le bit en rouge est ajouté et = 0 par defaut les autres bit sont décalés de 1 ver la gauche par contre le bit de gauche (avant le decalage) est supprimé 
+
+« | » pour insérer le bit extrait dans reversed = 00000000
+
+octet >>= 1;
+Déplace les bits de octet pour “faire tomber” le prochain bit à la position de poids faible
+				10110010 -> 01011001
+
+
+
+Et on boucle 7 fois
+Boucle 2 :
+(octet & 1) -> chiffre à extraire d’octet 01011001
+(reversed << 1) -> chiffre ajouté à droite de reversed 00000000 
+« | » chiffre d’octet ajouté là où le chiffre a été ajouté à reversed = 00000001
+octet >>= 1 on décale les bits existants de octet vers la droite octet =00101100
+
+
+Boucle 3 :
+(octet & 1) -> chiffre à extraire d’octet 00101100
+(reversed << 1) -> chiffre ajouté à droite de reversed 00000000
+« | » chiffre d’octet ajouté là où le chiffre a été ajouté à reversed = 00000010
+octet >>= 1 on décale les bits existants de octet vers la droite octet = 00010110
+
+
+
+
+
+
+
+

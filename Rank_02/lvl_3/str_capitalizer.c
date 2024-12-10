@@ -1,42 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_hex.c                                        :+:      :+:    :+:   */
+/*   str_capitalizer.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 17:40:11 by badal-la          #+#    #+#             */
-/*   Updated: 2024/12/10 15:21:52 by badal-la         ###   ########.fr       */
+/*   Created: 2024/12/10 15:36:01 by badal-la          #+#    #+#             */
+/*   Updated: 2024/12/10 16:14:26 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
-int	ft_atoi(char *s)
+void ft_str_capitalizer(char *s)
 {
 	int i = 0;
-	long result = 0;
-
-	while (s[i] >= '0' && s[i] <= '9')
-		result = result * 10 + s[i++] - '0';
-	return ((int)result);
-} 
-void ft_putnbr_base(int nb, char *base)
-{
-	if (nb >= 16)
-		ft_putnbr_base(nb / 16, base);
-	write(1, &base[nb % 16], 1);
+	
+	while (s[i])
+	{
+		if (s[i] >= 'A' && s[i] <= 'Z')
+			s[i] += 32;
+		if (s[i] >= 'a' && s[i] <= 'z' &&
+				(s[i - 1] == ' ' || s[i - 1] == '\t' || s[i - 1] == '\0'))
+			s[i] -= 32;
+		write(1, &s[i], 1);
+		i++;
+	}
+	write( 1, "\n", 1);
 }
 
-int	main(int argc, char **argv)
+int main(int ac, char **av)
 {
-	char *base = "0123456789abcdef";
-	if (argc == 2)
+	int i = 1;
+	
+	if (ac > 1)
 	{
-		if (ft_atoi(argv[1]) >= 0)
-			ft_putnbr_base(ft_atoi(argv[1]), base);
+		while (i < ac)
+		{
+			ft_str_capitalizer(av[i]);
+			i++;
+		}
 	}
-	write(1, "\n", 1);
-	return (0);
-} 
-
+	else
+		write( 1, "\n", 1);
+}
