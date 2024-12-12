@@ -6,39 +6,37 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 12:20:24 by badal-la          #+#    #+#             */
-/*   Updated: 2024/12/09 14:13:02 by badal-la         ###   ########.fr       */
+/*   Updated: 2024/12/12 14:15:56 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
 
-int	ft_strlen(char *str)
+int main(int ac, char **av)
 {
-	int i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-int	main(int argc, char **av)
-{
-	int i = 0;
-	int len = (int)ft_strlen(av[1]) - 1;
-	
-	if (argc == 2)
+	if (ac == 2)
 	{
-		while ((av[1][len - i] == ' ' || av[1][len - i] == '\t')
-				&& av[1][len - i])
+		int i = 0;
+
+		while (av[1][i])
 			i++;
-		int end = len - i + 1;
+		int len = i;
 		i = 0;
-		while ((av[1][i] == ' ' || av[1][i] == '\t') && av[1][i] < end)
+		while (av[1][len - 1] == ' ' || av[1][len - 1] == '\t')
+			len--;
+		while ((av[1][i] == ' ' || av[1][i] == '\t') && i < len)
 			i++;
-		while (i < end)
+		while (i < len)
 		{
-			if (av[1][i] == ' ')
-				write(1, "  ", 2);
-			write(1, &av[1][i++], 1);
+			if (av[1][i] == ' ' && av[1][i + 1] == ' ')
+				i++;
+			else
+			{
+				if (av[1][i] == ' ')
+					write(1, "  ", 2);
+				write(1, &av[1][i++], 1);
+			}
 		}
 	}
 	write(1, "\n", 1);
