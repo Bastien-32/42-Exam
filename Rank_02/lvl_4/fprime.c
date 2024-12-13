@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:36:23 by badal-la          #+#    #+#             */
-/*   Updated: 2024/12/10 17:31:24 by badal-la         ###   ########.fr       */
+/*   Updated: 2024/12/13 16:30:54 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ void fprime(char *s)
 	int nb = atoi(s);
 	int i = 2;
 	
-	if (nb == 0)
-		printf("0");
 	if (nb == 1)
 		printf("1");
 	while (i <= nb)
