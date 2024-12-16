@@ -23,14 +23,14 @@ char    **ft_split(char *str)
 	int j = 0;
 	int count;
 
-	char **tab = malloc(52);
+	char **tab = malloc(4096);
 	if (!tab)
 		return (NULL);
 	while (str[i])
 	{
-		if (str[i] != ' ' && (str[i - 1] == ' ' || i == 0))
+		if (str[i] != ' ' && (i == 0 || str[i - 1] == ' '))
 		{
-			tab[j] = malloc(word_in_str(str));
+			tab[j] = malloc(4096);
 			if (!tab[j])
 			{
 				while (j > 0)
@@ -50,7 +50,8 @@ char    **ft_split(char *str)
 			j++;
 			i += count;
 		}
-		i++;
+		else
+			i++;
 	}
 	tab[j] = NULL;
 	return (tab);

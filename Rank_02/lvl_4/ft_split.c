@@ -9,14 +9,14 @@ char    **ft_split(char *str)
 	int j = 0;
 	int count;
 
-	char **tab = malloc(52);
+	char **tab = malloc(4096);
 	if (!tab)
 		return (NULL);
 	while (str[i])
 	{
-		if (str[i] != ' ' && (str[i - 1] == ' ' || i == 0))
+		if (str[i] != ' ' && (i == 0 || str[i - 1] == ' '))
 		{
-			tab[j] = malloc(8);
+			tab[j] = malloc(4096);
 			if (!tab[j])
 			{
 				while (j > 0)
@@ -36,30 +36,34 @@ char    **ft_split(char *str)
 			j++;
 			i += count;
 		}
-		i++;
+		else
+			i++;
 	}
 	tab[j] = NULL;
 	return (tab);
 }
 
-int main(void)
+int main(int ac, char **av)
 {
-	int i = 0;
-	char *str = "Salut la Compagnie ! ";
-	char **tab = ft_split(str);
+	if (ac == 2)
+	{
+		int i = 0;
+		char *str = av[1];
+		char **tab = ft_split(str);
 
-	if (!tab)
-        return (1);
-	while (tab[i])
-	{
-		printf("tab[%d] = %s\n", i, tab[i]);
-		i++;
+		if (!tab)
+			return (1);
+		while (tab[i])
+		{
+			printf("tab[%d] = %s\n", i, tab[i]);
+			i++;
+		}
+		while (i > 0)
+		{
+			i--;
+			free(tab[i]);
+		}
+		free(tab);
 	}
-	while (i > 0)
-	{
-		i--;
-		free(tab[i]);
-	}
-	free(tab);
 	return (0);
 }
