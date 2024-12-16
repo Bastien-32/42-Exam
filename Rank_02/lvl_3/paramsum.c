@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:57:09 by badal-la          #+#    #+#             */
-/*   Updated: 2024/12/09 17:15:08 by badal-la         ###   ########.fr       */
+/*   Updated: 2024/12/16 17:14:11 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@
 
 void	ft_putnbr(int n)
 {
-	char digit;
+	char c;
 
 	if (n >= 10)
 		ft_putnbr(n / 10);
-	digit = (n % 10) + '0';
-	write(1, &digit, 1);
+	c = (n % 10) + '0';
+	write(1, &c, 1);
 }
 
 int	main(int argc, char **argv)

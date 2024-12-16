@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:20:38 by badal-la          #+#    #+#             */
-/*   Updated: 2024/12/09 16:54:18 by badal-la         ###   ########.fr       */
+/*   Updated: 2024/12/16 16:57:21 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@ unsigned int    lcm(unsigned int a, unsigned int b)
 	int max;
 	int result;
 	
+	if (a > 2147483647 || b > 2147483647) 
+		return (0);
 	if (a == 0 || b == 0)
 		return (0);
 	if (a > b)
