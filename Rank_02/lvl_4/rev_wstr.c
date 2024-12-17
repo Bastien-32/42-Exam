@@ -1,50 +1,57 @@
-#include <unistd.h>
 #include <stdlib.h>
-
 #include <stdio.h>
+#include <unistd.h>
 
-int word_in_str(char *str)
+int ft_count_words( char *str)
 {
 	int i = 0;
 	int count = 0;
-
-	while (str[i])
+	while(str[i])
 	{
-		if(str[i] != ' ' && (str[i - 1] == ' ' || i == 0))
+		if (str[i] != ' ' && (i == 0 || str[i - 1] == ' '))
 			count++;
 		i++;
 	}
 	return (count);
 }
 
-char    **ft_split(char *str)
+int len_word( char *str, int begin)
+{
+	int i = 0;
+	while (str[begin + i] != ' ' && str[begin + i])
+	{
+		i++;
+	}
+	return (i);
+}
+
+char **ft_split(char *str)
 {
 	int i = 0;
 	int j = 0;
 	int count;
 
-	char **tab = malloc(4096);
+	int word_count = ft_count_words(str);
+	char **tab = malloc((word_count + 1) * sizeof(char *));
 	if (!tab)
 		return (NULL);
 	while (str[i])
 	{
 		if (str[i] != ' ' && (i == 0 || str[i - 1] == ' '))
 		{
-			tab[j] = malloc(4096);
-			if (!tab[j])
+			tab[j] = malloc((len_word(str, i) + 1) * sizeof(char));
+			if(!tab[j])
 			{
-				while (j > 0)
-				{
-					j--;
-					free(tab[j]);
-				}
-				return (NULL);
-			}
+                while (j > 0)
+                    free(tab[--j]);
+                free(tab);
+                return NULL;
+            }
 			count = 0;
-			while (str[i + count] && str[i + count] != ' ')
+			while(str[i + count] != ' ' && str[i + count])
 			{
 				tab[j][count] = str[i + count];
-				count++;
+				count ++;
 			}
 			tab[j][count] = '\0';
 			j++;
@@ -57,31 +64,30 @@ char    **ft_split(char *str)
 	return (tab);
 }
 
+void ft_putchar(char *str)
+{
+	while(*str)
+		write(1, str++, 1);
+}
+
 int main(int ac, char **av)
 {
-	if (ac > 1)
-	{	
-		char *str = av[1];
-		int i = word_in_str(str) - 1;
-		char **tab = ft_split(str);
-
-		if (!tab)
-			return (1);
+	if (ac == 2)
+	{
+		char **tab = ft_split(av[1]);
+		int i = 0;
+		while(tab[i])
+			i++;
+		i--;
 		while (i >= 0)
 		{
-			printf("%s", tab[i]);
-			if (i != 0)
-				printf(" ");
-			i--;
-		}
-		i = word_in_str(str) - 1;
-		while (i > 0)
-		{
-			i--;
+			ft_putchar(tab[i]);
+			if ( i > 0)
+				write(1, " ", 1);
 			free(tab[i]);
+			i--;
 		}
 		free(tab);
 	}
-	printf("\n");
-	return (0);
+	write(1, "\n", 1);
 }
