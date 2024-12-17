@@ -1,16 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   fprime.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 16:36:23 by badal-la          #+#    #+#             */
-/*   Updated: 2024/12/13 16:30:54 by badal-la         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-
 /* Ne pas oublier les conditions pour 0 et 1
 Bien retenir De diviser le nombre par le nombre premier trouvé et 
 la condition d'affichage de "*" Juste après cette opération */

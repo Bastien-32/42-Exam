@@ -1,6 +1,5 @@
 #include <unistd.h>
 #include <stdlib.h>
-
 #include <stdio.h>
 
 char    **ft_split(char *str)
@@ -42,7 +41,7 @@ char    **ft_split(char *str)
 	tab[j] = NULL;
 	return (tab);
 }
-
+/* 
 int main(int ac, char **av)
 {
 	if (ac == 2)
@@ -67,3 +66,4 @@ int main(int ac, char **av)
 	}
 	return (0);
 }
+ */

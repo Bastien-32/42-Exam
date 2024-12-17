@@ -13,7 +13,7 @@ char	*ft_strcpy(char *s1, char *s2)
 	s1[i] = '\0';
 	return (s1);
 }
-
+/* 
 // /!\ ne pas assigner ft_strcpy a s1. 
 // Le mettre dans printf direct
 #include <stdio.h>
@@ -25,4 +25,4 @@ int	main(void)
 
 	printf("%s\n", ft_strcpy(s1, s2));
 	return (0);
-}
+} */

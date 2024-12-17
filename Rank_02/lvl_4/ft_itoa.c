@@ -1,16 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 17:32:46 by badal-la          #+#    #+#             */
-/*   Updated: 2024/12/10 18:07:30 by badal-la         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-
 /* Ne pas oublier de transformer le int n en long nbr pour que 
 ça prenne en compte des nombres, au-delà de la limite de int */
 #include <unistd.h>

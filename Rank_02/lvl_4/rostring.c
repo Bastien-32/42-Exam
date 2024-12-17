@@ -1,8 +1,6 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-#include <stdio.h>
-
 int word_in_str(char *str)
 {
 	int i = 0;

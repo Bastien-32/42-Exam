@@ -6,11 +6,13 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 12:04:23 by badal-la          #+#    #+#             */
-/*   Updated: 2024/12/16 13:39:15 by badal-la         ###   ########.fr       */
+/*   Updated: 2024/12/17 19:57:34 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 {

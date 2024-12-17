@@ -15,7 +15,7 @@ void	ft_rot_one(char *str)
 		i++;
 	}
 }
-
+/* 
 int	main(int argc, char *argv[])
 {
 	if (argc == 2)
@@ -25,3 +25,4 @@ int	main(int argc, char *argv[])
 	write(1, "\n", 1);
 	return (0);
 }
+ */

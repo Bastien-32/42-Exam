@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <stdio.h>
 #include <unistd.h>
 
 int ft_count_words( char *str)
