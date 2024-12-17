@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 09:51:49 by badal-la          #+#    #+#             */
-/*   Updated: 2024/12/09 09:52:25 by badal-la         ###   ########.fr       */
+/*   Updated: 2024/12/17 16:24:13 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int	charset_in_str (char *str, char c)
 {
-	int	i;
-	
-	i = 0;
-	while (str[i] && str[i] != c)
+	int i = 0;
+	while (str[i])
+	{
+		if (str[i] == c)
+			return (1);
 		i++;
-	if (str[i] != '\0')
-		return (1);
+	}
 	return (0);
 }
 
@@ -31,8 +31,8 @@ char	*ft_strpbrk(const char *s, const char *reject)
 	i = 0;
 	while (s[i])
 	{
-		if(charset_in_str((char *)reject, s[i]))
-			return((char *)(s + i));
+		if(charset_in_str(reject, s[i]))
+			return(s + i);
 		i++;
 	}
 	return (NULL);

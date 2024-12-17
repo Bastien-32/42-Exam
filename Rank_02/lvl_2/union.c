@@ -6,21 +6,19 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 11:00:21 by badal-la          #+#    #+#             */
-/*   Updated: 2024/12/09 11:14:04 by badal-la         ###   ########.fr       */
+/*   Updated: 2024/12/17 17:29:34 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
 
-int	char_in_str(char *s, char c)
+int	char_in_str (char *str, char c)
 {
 	int i = 0;
-	while (!s)
-		return (0);
-	while (s[i])
+	while (str[i])
 	{
-		if (s[i] == c)
+		if (str[i] == c)
 			return (1);
 		i++;
 	}
@@ -31,13 +29,10 @@ void	ft_union(char *s1, char *s2)
 {
 	int		i;
 	int		j;
-	char	*dest;
+	char	dest[256];
 
 	i = 0;
 	j = 0;
-	dest = malloc(4096);
-	if (!dest)
-		return;
 	while (s1[i])
 	{
 		if (!char_in_str(dest, s1[i]))
@@ -59,7 +54,6 @@ void	ft_union(char *s1, char *s2)
 		}
 		i++;
 	}
-	free(dest);
 }
 
 int	main(int argc, char **argv)

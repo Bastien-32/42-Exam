@@ -6,20 +6,16 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 10:03:13 by badal-la          #+#    #+#             */
-/*   Updated: 2024/12/09 10:59:22 by badal-la         ###   ########.fr       */
+/*   Updated: 2024/12/17 17:26:45 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
 
-int	char_in_str(char *str, char c)
+int	char_in_str (char *str, char c)
 {
-	int	i;
-
-	i = 0;
-	if (!str)
-		return (0);
+	int i = 0;
 	while (str[i])
 	{
 		if (str[i] == c)
@@ -42,13 +38,10 @@ void	inter(char *s1, char *s2)
 {
 	int		i;
 	int		j;
-	char	*dest;
+	char	dest[256];
 
 	i = 0;
 	j = 0;
-	dest = malloc((ft_strlen(s1) + 1) * sizeof(char));
-	if (!dest)
-		return;
 	while(s1[i])
 	{
 		if (!char_in_str(dest, s1[i]))
@@ -56,18 +49,13 @@ void	inter(char *s1, char *s2)
 		i++;
 	}
 	dest[j] = '\0';
-	i = 0;
 	j = 0;
-	while (s2[i] && dest[j])
+	while (dest[j])
 	{
-		if (s2[i] == dest[j])
-		{
-			write(1, &s2[i], 1);
-			j++;
-		}
-		i++;
+		if (char_in_str(s2, dest[j]))
+			write(1, &dest[j], 1);
+		j++;
 	}
-	free(dest);
 }
 
 int	main(int argc, char **argv)

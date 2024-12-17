@@ -6,21 +6,19 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 11:00:21 by badal-la          #+#    #+#             */
-/*   Updated: 2024/12/09 11:26:37 by badal-la         ###   ########.fr       */
+/*   Updated: 2024/12/17 17:27:19 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
 
-int	char_in_str(char *s, char c)
+int	char_in_str (char *str, char c)
 {
 	int i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
+	while (str[i])
 	{
-		if (s[i] == c)
+		if (str[i] == c)
 			return (1);
 		i++;
 	}
