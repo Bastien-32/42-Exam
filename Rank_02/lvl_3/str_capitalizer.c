@@ -1,5 +1,4 @@
 #include <unistd.h>
-#include <stdio.h>
 
 void ft_str_capitalizer(char *s)
 {

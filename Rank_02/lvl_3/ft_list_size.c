@@ -1,8 +1,14 @@
+
+/*
+a ecrire dans un fichier nommé ft_list.h :
+
 typedef struct    s_list
 {
     struct s_list *next;
     void          *data;
 }                 t_list;
+ */
+#include "ft_list.h"
 
 int	ft_list_size(t_list *begin_list)
 {

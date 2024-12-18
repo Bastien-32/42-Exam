@@ -1,6 +1,6 @@
 #include <unistd.h>
 
-int	charset_in_str (char *str, char c)
+int	char_in_str (const char *str, const char c)
 {
 	int i = 0;
 	while (str[i])
@@ -19,13 +19,13 @@ char	*ft_strpbrk(const char *s, const char *reject)
 	i = 0;
 	while (s[i])
 	{
-		if(charset_in_str(reject, s[i]))
+		if(char_in_str(reject, s[i]))
 			return(s + i);
 		i++;
 	}
 	return (NULL);
 } 
-
+/* 
 #include <stdio.h>
 
 int	main(int argc, char **argv)
@@ -34,3 +34,4 @@ int	main(int argc, char **argv)
 		printf("%p", (char *)ft_strpbrk(argv[1], argv[2]));
 	return (0);
 }
+ */

@@ -20,7 +20,7 @@ unsigned int    lcm(unsigned int a, unsigned int b)
 	result = a * b / max;
 	return (result);
 }
-
+/* 
 #include <stdio.h>
 
 int main(void)
@@ -29,3 +29,4 @@ int main(void)
 	printf("%d", i);
 	return (0);
 }
+ */

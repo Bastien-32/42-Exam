@@ -1,6 +1,6 @@
 #include <unistd.h>
 
-/* void	ft_repeat_alpha(char *str)
+void	ft_repeat_alpha(char *str)
 {
 	int	i;
 	int	j;
@@ -31,33 +31,8 @@
 			write(1, &str[i], 1);
 		i++;
 	}
-} */
-void	ft_repeat_alpha(char *str)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (str[i])
-	{
-		j = 0;
-		if (str[i] >= 'a' && str[i] <= 'z')
-		{
-			j = str[i] - 'a' + 1;
-			while (j--)
-				write(1, &str[i], 1);
-		}
-		else if (str[i] >= 'A' && str[i] <= 'Z')
-		{
-			j = str[i] - 'A' + 1;
-			while (j--)
-				write(1, &str[i], 1);
-		}
-		else
-			write(1, &str[i], 1);
-		i++;
-	}
 }
+
 int	main(int argc, char *argv[])
 {
 	if (argc == 2)
