@@ -1,4 +1,3 @@
-
 /*
 a ecrire dans un fichier nommé ft_list.h :
 

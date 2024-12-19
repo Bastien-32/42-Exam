@@ -17,13 +17,12 @@ int len(int nbr)
 	return (i);
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(int nbr)
 {
-	int i = len(n);
+	int i = len(nbr);
 	char *str = (char *)malloc((i + 1) * sizeof(int));
 	if (!str)
 		return (NULL);
-	long nbr = n;
 	str[i + 1] = '\0';
 	if (nbr < 0)
 	{

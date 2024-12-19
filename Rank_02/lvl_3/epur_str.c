@@ -1,28 +1,21 @@
 #include <unistd.h>
 #include <stdio.h>
 
-int	ft_strlen(char *str)
-{
-	int i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
 int	main(int argc, char **av)
 {
-	int i = 0;
-	int len = (int)ft_strlen(av[1]) - 1;
-	
 	if (argc == 2)
 	{
-		while ((av[1][len - i] == ' ' || av[1][len - i] == '\t')
-				&& av[1][len - i])
+		int i = 0;
+
+		while (av[1][i])
 			i++;
-		int end = len - i + 1;
+		int len = i;
 		i = 0;
-		while ((av[1][i] == ' ' || av[1][i] == '\t') && av[1][i] < end)
+		while (av[1][len - 1] == ' ' || av[1][len - 1] == '\t')
+			len--;
+		while ((av[1][i] == ' ' || av[1][i] == '\t') && i < len)
 			i++;
-		while (i < end)
+		while (i < len)
 		{
 			if ((av[1][i] == ' ' || av[1][i] == '\t') &&
 					(av[1][i - 1] == ' ' || av[1][i - 1] == '\t'))

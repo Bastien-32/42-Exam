@@ -1,4 +1,4 @@
-#include <unistd.h>
+#include <stdlib.h>
 
 int	char_in_str (const char *str, const char c)
 {

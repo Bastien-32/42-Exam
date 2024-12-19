@@ -9,10 +9,8 @@ void	camel_to_snake(char *str)
 	{
 		if (str[i] >= 'A' && str[i] <= 'Z')
 		{
-			temp = str[i];
-			str[i] = '_';
-			write(1, &str[i], 1);
-			str[i] = temp + 32;
+			write(1, "_", 1);
+			str[i] += 32;
 		}
 		write(1, &str[i], 1);
 		i++;

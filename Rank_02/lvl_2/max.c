@@ -22,7 +22,7 @@ int	max(int *tab, unsigned int len)
 	return (tab[0]);
 }
 
-
+/*
 int main(void)
 { 
 	int tab[6] = {1, 8, 5, 3, 9, 18};
@@ -30,3 +30,4 @@ int main(void)
 	printf("%d", i);
 	return (0);
 }
+*/

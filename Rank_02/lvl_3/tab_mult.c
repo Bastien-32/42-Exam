@@ -19,7 +19,7 @@ int ft_atoi (char *s)
 	return (result);
 }
 
-void	tab_mult(char * s)
+void	tab_mult(char *s)
 {
 	int i = 1;
 	int result; 

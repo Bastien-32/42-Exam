@@ -17,7 +17,8 @@ int main(int ac, char **av)
 			i++;
 		while (i < len)
 		{
-			if (av[1][i] == ' ' && av[1][i + 1] == ' ')
+			if ((av[1][i] == ' ' || av[1][i] == '\t') &&
+					(av[1][i - 1] == ' ' || av[1][i - 1] == '\t'))
 				i++;
 			else
 			{

@@ -2,9 +2,9 @@
 
 char *ft_strrev(char *str)
 {
-    size_t len = 0;
-    size_t i = 0;
-    char temp;
+    int		len = 0;
+    int		i = 0;
+    char 	temp;
 
     if (!str)
         return (NULL);

@@ -14,7 +14,7 @@ int	char_in_str (const char *str, const char c)
 
 char	*ft_strpbrk(const char *s, const char *reject)
 {
-	size_t	i;
+	int	i;
 	
 	i = 0;
 	while (s[i])
