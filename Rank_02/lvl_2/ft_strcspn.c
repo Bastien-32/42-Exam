@@ -15,6 +15,7 @@ int	char_in_str (const char *str, const char c)
 size_t	ft_strcspn(const char *s, const char *reject)
 {
 	size_t	i = 0;
+	
 	while (s[i])
 	{
 		if (char_in_str(reject, s[i]))

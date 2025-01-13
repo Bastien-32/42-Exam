@@ -14,9 +14,8 @@ int	char_in_str (const char *str, const char c)
 
 char	*ft_strpbrk(const char *s, const char *reject)
 {
-	int	i;
-	
-	i = 0;
+	int	i = 0;
+
 	while (s[i])
 	{
 		if(char_in_str(reject, s[i]))
@@ -34,4 +33,4 @@ int	main(int argc, char **argv)
 		printf("%p", (char *)ft_strpbrk(argv[1], argv[2]));
 	return (0);
 }
- */
+*/

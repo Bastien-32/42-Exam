@@ -1,6 +1,30 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+char    **ft_split(char *str)
+{
+	int	i = 0;
+	int	j = 0;
+	int	count;
+
+	char	**tab = (char **)malloc(sizeof(char *) * 4096);
+	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
+		i++;
+	while (str[i])
+	{
+		count = 0;
+		tab[j] = malloc(sizeof(char) * 4096);
+		while (str[i] != ' ' && str[i] != '\t' && str[i] != '\n' && str[i] != '\0')
+			tab[j][count++] = str[i++];
+		tab[j][count] = '\0';
+		while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
+			i++;
+		j++;
+	}
+	tab[j] = NULL;
+	return (tab);
+}
+
 int word_in_str(char *str)
 {
 	int i = 0;
@@ -14,50 +38,11 @@ int word_in_str(char *str)
 	}
 	return (count);
 }
+
 void	ft_putstr(char *str)
 {
 	while (*str)
 		write(1, str++, 1);
-}
-
-char    **ft_split(char *str)
-{
-	int i = 0;
-	int j = 0;
-	int count;
-
-	char **tab = malloc(4096);
-	if (!tab)
-		return (NULL);
-	while (str[i])
-	{
-		if (str[i] != ' ' && (i == 0 || str[i - 1] == ' '))
-		{
-			tab[j] = malloc(4096);
-			if (!tab[j])
-			{
-				while (j > 0)
-				{
-					j--;
-					free(tab[j]);
-				}
-				return (NULL);
-			}
-			count = 0;
-			while (str[i + count] && str[i + count] != ' ')
-			{
-				tab[j][count] = str[i + count];
-				count++;
-			}
-			tab[j][count] = '\0';
-			j++;
-			i += count;
-		}
-		else
-			i++;
-	}
-	tab[j] = NULL;
-	return (tab);
 }
 
 int main(int ac, char **av)
