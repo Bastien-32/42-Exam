@@ -40,11 +40,11 @@ char	*ft_itoa(int nbr)
 	return (str);
 } 
 
-int main (void)
+/*int main (void)
 {
 	int i = 534;
 	char *j = ft_itoa(i);
 	printf("%s", j);
 	free(j);
 	return (0);
-}
+}*/
