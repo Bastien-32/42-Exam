@@ -1,4 +1,4 @@
-Subject
+SUBJECT
 
 Assignment name  : ft_printf
 Expected files   : ft_printf.c
