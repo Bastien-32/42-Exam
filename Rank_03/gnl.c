@@ -6,11 +6,14 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 09:15:56 by badal-la          #+#    #+#             */
-/*   Updated: 2025/03/05 09:56:53 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/03/17 08:48:39 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #define BUFFER_SIZE 42
 
@@ -62,3 +65,5 @@ char *get_next_line(int fd)
 		return (NULL);
 	return(ft_strdup(line));
 }
+
+

@@ -25,7 +25,7 @@ char    **ft_split(char *str)
 	return (tab);
 }
 
-void ft_putchar(char *str)
+void ft_putstr(char *str)
 {
 	while(*str)
 		write(1, str++, 1);
@@ -42,7 +42,7 @@ int main(int ac, char **av)
 		i--;
 		while (i >= 0)
 		{
-			ft_putchar(tab[i]);
+			ft_putstr(tab[i]);
 			if ( i > 0)
 				write(1, " ", 1);
 			free(tab[i]);

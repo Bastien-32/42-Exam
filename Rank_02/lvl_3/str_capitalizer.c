@@ -9,7 +9,7 @@ void ft_str_capitalizer(char *s)
 		if (s[i] >= 'A' && s[i] <= 'Z')
 			s[i] += 32;
 		if (s[i] >= 'a' && s[i] <= 'z' &&
-				(s[i - 1] == ' ' || s[i - 1] == '\t' || s[i - 1] == '\0'))
+				(i == 0 || s[i - 1] == ' ' || s[i - 1] == '\t'))
 			s[i] -= 32;
 		write(1, &s[i], 1);
 		i++;

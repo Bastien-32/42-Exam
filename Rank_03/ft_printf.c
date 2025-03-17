@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 09:59:49 by badal-la          #+#    #+#             */
-/*   Updated: 2025/03/05 11:17:06 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/03/17 09:19:34 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int ft_putnbr_pf(int nb)
 	i = 0;
 	if (nb == -2147483648)
 	{
-		write(1, "-2147483648", 11);
+		i += write(1, "-2147483648", 11);
 		return (i);
 	}
 	if (nb < 0)
@@ -74,26 +74,7 @@ int	ft_putnbr_base_pf(int nb, char *base)
 	return (i);
 }
 
-int	callconv(va_list args, char *format)
-{
-	int	i;
-
-	i = 0;
-	if (*format == 's')
-		i += ft_putstr_pf(va_arg(args, char *));
-	else if (*format == 'd')
-		i += ft_putnbr_pf(va_arg(args, int));
-	else if (*format == 'x')
-		i += ft_putnbr_base_pf(va_arg(args, unsigned int), "0123456789abcdef");
-	//else if (*format == '%')
-	//{
-	//	i += write(1, "%", 1);
-	//	format++;
-	//}
-	return (i);
-}
-
-int ft_printf(char *format, ...)
+int ft_printf(const char *format, ...)
 {
 	int	i;
 	va_list args;
@@ -102,19 +83,25 @@ int ft_printf(char *format, ...)
 	va_start(args, format);
 	while (*format)
 	{
-		if (*format == '%'&& *(format + 1))
+		if (*format == '%' && *(format + 1))
 		{
 			format++;
-			i += callconv(args, format);
+			if (*format == 's')
+				i += ft_putstr_pf(va_arg(args, char *));
+			else if (*format == 'd')
+				i += ft_putnbr_pf(va_arg(args, int));
+			else if (*format == 'x')
+				i += ft_putnbr_base_pf(va_arg(args, unsigned int), "0123456789abcdef");
 		}
 		else
-			write(1,format, 1);
+			write(1, format, 1);
 		format++;
 	}
 	va_end(args);
+	return (i);
 }
 
-//int main(void)
-//{
-//	ft_printf("%s\n%d\n%x", "un deux trois", 1, 22);
-//}
+// int main(void)
+// {
+// 	ft_printf("%s\n%d\n%x", "un deux trois", 1, 22);
+// }
