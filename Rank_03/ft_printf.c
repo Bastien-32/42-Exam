@@ -6,11 +6,10 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 09:59:49 by badal-la          #+#    #+#             */
-/*   Updated: 2025/03/17 09:19:34 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/03/19 10:24:12 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <stdarg.h>
 #include <unistd.h>
 
@@ -19,8 +18,8 @@ int	ft_putstr_pf(char *str)
 	int	i;
 
 	i = 0;
-	//if (!str)
-	//	return (write(1, "(null)", 6));
+	if (!str)
+		return (write(1, "(null)", 6));
 	while (*str)
 		i += write(1, str++, 1);
 	return (i);
@@ -43,7 +42,7 @@ int ft_putnbr_pf(int nb)
 		i += write(1, "-", 1);
 	}
 	if (nb >= 10)
-		ft_putnbr_pf(nb / 10);
+		i += ft_putnbr_pf(nb / 10);
 	c = (nb % 10) + '0';
 	i += write(1, &c,1);
 	return (i);
@@ -68,7 +67,7 @@ int	ft_putnbr_base_pf(int nb, char *base)
 	i = 0;
 	len = ft_strlen(base);
 	if (nb >= len)
-		ft_putnbr_base_pf(nb / len, base);
+		i += ft_putnbr_base_pf(nb / len, base);
 	c = base[nb % len];
 	i += write(1, &c, 1);
 	return (i);
@@ -78,7 +77,7 @@ int ft_printf(const char *format, ...)
 {
 	int	i;
 	va_list args;
-	
+
 	i = 0;
 	va_start(args, format);
 	while (*format)
@@ -101,7 +100,3 @@ int ft_printf(const char *format, ...)
 	return (i);
 }
 
-// int main(void)
-// {
-// 	ft_printf("%s\n%d\n%x", "un deux trois", 1, 22);
-// }

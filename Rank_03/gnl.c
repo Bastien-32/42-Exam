@@ -6,13 +6,13 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 09:15:56 by badal-la          #+#    #+#             */
-/*   Updated: 2025/03/17 08:48:39 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/03/18 18:42:48 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <fcntl.h>
-#include <stdio.h>
+//#include <fcntl.h>
+//#include <stdio.h>
 #include <stdlib.h>
 
 #define BUFFER_SIZE 42
