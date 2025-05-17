@@ -58,7 +58,7 @@ int main(int ac, char **av, char **env)
 		i = 0;
 		while (av[i] && strcmp(av[i], "|") && strcmp(av[i], ";"))
 			i++;
-		if (!strcmp(av[0], "cd"))
+		if (strcmp(av[0], "cd") == 0)
 			status = builtin_cd(av, i);
 		else
 			status = exec_cmds(av, i, env);
