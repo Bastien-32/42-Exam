@@ -15,7 +15,7 @@ int builtin_cd(char **av, int i)
 	if (i != 2)
 		return error_msg("error: cd: bad arguments\n");
 	else if (chdir(av[1]) == -1)
-		return error_msg("error: cd: bad arguments "), error_msg(av[1]), error_msg("\n");
+		return error_msg("error: cd: cannot change directory to "), error_msg(av[1]), error_msg("\n");
 	return (0);
 }
 
