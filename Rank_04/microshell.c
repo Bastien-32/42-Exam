@@ -62,6 +62,8 @@ int main(int ac, char **av, char **env)
 			status = builtin_cd(av, i);
 		else
 			status = exec_cmds(av, i, env);
+		while (strcmp(av[i], ";") == 0 && strcmp(av[i + 1], ";") == 0)
+			i++;
 	}
 	return (status);
 }
